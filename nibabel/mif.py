@@ -583,7 +583,7 @@ class MIFReader(LabeledWrapStruct):
         print(
             
         )
-        s = s[0:(offset-fpointer.tell())]
+        s = s[0:(offset-fpointer.tell())-3]
         
 
         return s
