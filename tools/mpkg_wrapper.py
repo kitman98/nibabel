@@ -10,14 +10,12 @@
 distutils setup.py.
 
 This script is a minimal version of a wrapper script shipped with the
-bdist_mpkg packge.
+bdist_mpkg package.
 """
 
 __docformat__ = 'restructuredtext'
 
 import sys
-import setuptools
-import bdist_mpkg
 
 def main():
     del sys.argv[0]

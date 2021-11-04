@@ -331,7 +331,7 @@ class GiftiDataArray(xml.XmlSerializable):
         The Endianness to store the data array.  Should correspond to the
         machine endianness.  Default is system byteorder.
     coordsys : :class:`GiftiCoordSystem` instance
-        Input and output coordinate system with tranformation matrix between
+        Input and output coordinate system with transformation matrix between
         the two.
     ind_ord : int
         The ordering of the array. see util.array_index_order_codes.  Default
@@ -877,8 +877,8 @@ class GiftiImage(xml.XmlSerializable, SerializableImage):
         """
         if file_map is None:
             file_map = self.file_map
-        f = file_map['image'].get_prepare_fileobj('wb')
-        f.write(self.to_xml())
+        with file_map['image'].get_prepare_fileobj('wb') as f:
+            f.write(self.to_xml())
 
     @classmethod
     def from_file_map(klass, file_map, buffer_size=35000000, mmap=True):
